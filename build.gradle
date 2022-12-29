@@ -14,8 +14,9 @@ configurations {
 	}
 }
 
+// 프로젝트 빌드에 필요한 dependencies를 어디서 다운받을지
 repositories {
-	mavenCentral()
+	mavenCentral() // maven의 중앙저장소
 }
 
 dependencies {
@@ -23,8 +24,15 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'com.h2database:h2'
+
+	// lombok
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	//swagger
+	// https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
 }
 
 tasks.named('test') {

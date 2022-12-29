@@ -1,1 +1,32 @@
 
+server:
+  servlet:
+    encoding:
+      charset: utf-8 # request data to UTF-8
+      enabled: true
+
+spring:
+  # H2-DB setting
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true # web access
+
+  datasource:
+    url: jdbc:h2:mem:testdb # h2-DB url
+    driver-class-name: org.h2.Driver # driver class name
+    username: sa
+    password:
+
+  # JPA setting
+  jpa:
+    hibernate:
+      ddl-auto: create # drop exist table and create new table
+      naming: # naming strategy -> table name is same with class name
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # for swagger 3.0
